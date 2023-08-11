@@ -27,7 +27,6 @@ var executor = CommandExecutor.For(_ =>
             return;
 
         input.Host = Host.CreateDefaultBuilder()
-            // .UseStartup<Startup>()
             .UseSerilog((context, configuration) => configuration
                 .ReadFrom.Configuration(context.Configuration)
                 .Enrich.FromLogContext()

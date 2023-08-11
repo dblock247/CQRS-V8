@@ -2,8 +2,6 @@ using System.Diagnostics;
 using CQRS.Application.Features.Weather;
 using CQRS.Application.Interfaces;
 using CQRS.Application.Middleware;
-using CQRS.WebApi;
-using Jetpack.Extensions.Hosting;
 using Oakton;
 using Serilog;
 using Wolverine;
@@ -11,7 +9,6 @@ using Wolverine.FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host
-    .UseStartup<Startup>()
     .UseSerilog((context, configuration) => configuration
         .ReadFrom.Configuration(context.Configuration)
         .Enrich.FromLogContext()

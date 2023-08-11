@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using CQRS.WebApp;
-using Jetpack.Extensions.Hosting;
 using Oakton;
 using Serilog;
 using Wolverine;
@@ -8,7 +7,6 @@ using Wolverine.FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host
-  .UseStartup<Startup>()
   .UseSerilog((context, configuration) => configuration
       .ReadFrom.Configuration(context.Configuration)
       .Enrich.FromLogContext()
@@ -19,7 +17,7 @@ builder.Host
       .Enrich.WithProperty("DebuggerAttached", Debugger.IsAttached))
   .UseWolverine(options =>
   {
-    options.Discovery.IncludeAssembly(typeof(Startup).Assembly);
+    options.Discovery.IncludeAssembly(typeof(Program).Assembly);
     options.UseFluentValidation();
   })
   .ApplyOaktonExtensions();

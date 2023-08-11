@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>abcd6b1a-c772-4023-86f2-b7ff2b15d91a</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
+      <PackageReference Include="Serilog.AspNetCore.Enrichers.CorrelationId" Version="1.0.0" />
+      <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
+      <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Jetpack.Extensions.Hosting\src\Jetpack.Extensions.Hosting\Jetpack.Extensions.Hosting.csproj" />
+        <ProjectReference Include="..\..\src\CQRS.Application\CQRS.Application.csproj" />
+        <ProjectReference Include="..\..\src\CQRS.Infrastructure\CQRS.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\src\CQRS.Persistence\CQRS.Persistence.csproj" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <None Update="appsettings.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>

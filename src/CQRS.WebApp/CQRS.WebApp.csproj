@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>abcd6b1a-c772-4023-86f2-b7ff2b15d91a</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="8.0.0-preview.7.23375.9" />
+      <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
+      <PackageReference Include="Serilog.AspNetCore.Enrichers.CorrelationId" Version="1.0.0" />
+      <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
+      <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Jetpack.Extensions.Hosting\src\Jetpack.Extensions.Hosting\Jetpack.Extensions.Hosting.csproj" />
+        <ProjectReference Include="..\CQRS.Application\CQRS.Application.csproj" />
+        <ProjectReference Include="..\CQRS.Infrastructure\CQRS.Infrastructure.csproj" />
+        <ProjectReference Include="..\CQRS.Persistence\CQRS.Persistence.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="aurelia_project\aurelia.json" />
+      <_ContentIncludedByDefault Remove="aurelia_project\generators\attribute.json" />
+      <_ContentIncludedByDefault Remove="aurelia_project\generators\binding-behavior.json" />
+      <_ContentIncludedByDefault Remove="aurelia_project\generators\component.json" />
+      <_ContentIncludedByDefault Remove="aurelia_project\generators\element.json" />
+      <_ContentIncludedByDefault Remove="aurelia_project\generators\generator.json" />
+      <_ContentIncludedByDefault Remove="aurelia_project\generators\task.json" />
+      <_ContentIncludedByDefault Remove="aurelia_project\generators\value-converter.json" />
+      <_ContentIncludedByDefault Remove="aurelia_project\tasks\build.json" />
+      <_ContentIncludedByDefault Remove="aurelia_project\tasks\jest.json" />
+      <_ContentIncludedByDefault Remove="aurelia_project\tasks\run.json" />
+      <_ContentIncludedByDefault Remove="aurelia_project\tasks\test.json" />
+    </ItemGroup>
+
+</Project>

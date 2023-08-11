@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>abcd6b1a-c772-4023-86f2-b7ff2b15d91a</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
+        <PackageReference Include="Serilog.AspNetCore.Enrichers.CorrelationId" Version="1.0.0" />
+        <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
+        <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Jetpack.Extensions.Hosting\src\Jetpack.Extensions.Hosting\Jetpack.Extensions.Hosting.csproj" />
+      <ProjectReference Include="..\CQRS.Application\CQRS.Application.csproj" />
+      <ProjectReference Include="..\CQRS.Infrastructure\CQRS.Infrastructure.csproj" />
+      <ProjectReference Include="..\CQRS.Persistence\CQRS.Persistence.csproj" />
+    </ItemGroup>
+</Project>

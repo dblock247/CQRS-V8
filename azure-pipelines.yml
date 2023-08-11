@@ -1,0 +1,53 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+
+- task: UseDotNet@2
+  displayName: 'Install .Net Core SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish Projects'
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '**/CQRS.csproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
+
+- task: NuGetCommand@2
+  displayName: 'Packing Projects'
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/CQRS.csproj'
+    versioningScheme: 'off'
+    includeSymbols: false
+
+- task: DotNetCoreCLI@2
+  displayName: 'Push packages to nuget feed'
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '07408426-7ee3-4dab-833f-19fd1f95deb6/fe096e4b-d8cb-45c8-a239-3679ce36eb9e'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'

@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NodaTime" Version="8.0.0-preview.4" />
+      <PackageReference Include="Twilio" Version="6.11.0" />
+      <PackageReference Include="WolverineFx" Version="1.5.0" />
+      <PackageReference Include="WolverineFx.FluentValidation" Version="1.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CQRS.Domain\CQRS.Domain.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json.schemastore.org/template",
+  "author": "Londre Blocker",
+  "classifications": ["CQRS"],
+  "name": "Jetpack CQRS",
+  "defaultName": "CQRS",
+  "identity": "Jetpack.CQRS.Core.CSharp",
+  "groupIdentity":"Jetpack.CQRS.Core",
+  "shortName": "cqrs",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "CQRS",
+  "guids": [
+    "abcd6b1a-c772-4023-86f2-b7ff2b15d91a"
+  ],
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [ ".vs/**", ".git/**", ".idea/**" ]
+        }
+      ]
+    }
+  ],
+  "postActions": [
+    {
+      "description": "Restore NuGet packages required by this project.",
+      "manualInstructions": [
+        { "text": "Run 'dotnet restore'" }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true,
+      "args": {
+        "files": [
+          "./src/CQRS.WebApi/CQRS.WebApi.csproj",
+          "./src/CQRS.WebApp/CQRS.WebApp.csproj",
+          "./src/CQRS.WebApp/CQRS.WebCli.csproj",
+          "./src/CQRS.WebApp/CQRS.Worker.csproj",
+          "./src/CQRS.Sandbox/CQRS.Sandbox.csproj",
+          "./tests/CQRS.IntegrationTests/CQRS.IntegrationTests.csproj",
+          "./tests/CQRS.UnitTests/CQRS.UnitTests.csproj"
+        ]
+      }
+    }
+  ]
+}

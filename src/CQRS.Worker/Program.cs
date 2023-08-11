@@ -2,14 +2,12 @@ using System.Diagnostics;
 // using CQRS.Application.Actions;
 using CQRS.Application.Middleware;
 using CQRS.Worker;
-using Jetpack.Extensions.Hosting;
 using Oakton;
 using Serilog;
 using Wolverine;
 using Wolverine.FluentValidation;
 
 var app =  Host.CreateDefaultBuilder()
-    .UseStartup<Startup>()
     .UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration)
         .Enrich.FromLogContext()
         .Enrich.WithCorrelationId()

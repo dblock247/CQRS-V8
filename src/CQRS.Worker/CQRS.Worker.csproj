@@ -15,7 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Jetpack.Extensions.Hosting\src\Jetpack.Extensions.Hosting\Jetpack.Extensions.Hosting.csproj" />
       <ProjectReference Include="..\CQRS.Application\CQRS.Application.csproj" />
       <ProjectReference Include="..\CQRS.Infrastructure\CQRS.Infrastructure.csproj" />
       <ProjectReference Include="..\CQRS.Persistence\CQRS.Persistence.csproj" />
